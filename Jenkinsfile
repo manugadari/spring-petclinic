@@ -4,7 +4,7 @@ pipeline {
     stages {
     stage('checkout') {
       steps {
-        git 'https://github.com/manugadari/pchat'
+        git 'https://github.com/manugadari/spring-petclinic'
       }
     }
     stage('Build') {
