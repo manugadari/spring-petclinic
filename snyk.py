@@ -239,7 +239,7 @@ def main():
     if args.scan_for_push:
         if not args.report:
             start_time = time.time()
-            target="/var/lib/jenkins/workspace/snyk shell"
+            target="/var/lib/jenkins/workspace/test"
             logger.info(f"type: {isinstance(target,str)}")
             scan_results = scanner.trigger_sast_scan(target, "pchat")
             end_time = time.time()
