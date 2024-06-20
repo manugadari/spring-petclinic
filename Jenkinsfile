@@ -2,11 +2,18 @@ pipeline {
   agent any
 
     stages {
-    stage('checkout') {
-      steps {
-        git 'https://github.com/manugadari/spring-petclinic'
-      }
-    }
+     stage('Checkout') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/manugadari/spring-petclinic'
+                    ]]
+                ])
+            }
+        }
+
     stage('Build') {
       steps {
         sh "python3 snyk.py " +
